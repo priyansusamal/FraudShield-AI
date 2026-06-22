@@ -1,0 +1,84 @@
+import streamlit as st
+import random
+from datetime import datetime
+
+st.set_page_config(page_title="Live Fraud Feed", layout="wide")
+
+st.title("📡 LIVE FRAUD INTELLIGENCE FEED")
+
+# =========================
+# FAKE LIVE FEED (NO INCIDENT STORE)
+# =========================
+def generate_fake_feed():
+    sources = ["Analyzer AI", "Bank Monitor", "Cyber Unit", "OSINT Bot"]
+    messages = [
+        "Suspicious OTP request detected from unknown number",
+        "Fake banking SMS campaign spreading",
+        "Digital arrest scam targeting users",
+        "Phishing link detected in WhatsApp message",
+        "High-risk financial fraud pattern identified"
+    ]
+
+    return {
+        "source": random.choice(sources),
+        "risk": random.randint(10, 100),
+        "message": random.choice(messages),
+        "time": datetime.now().strftime("%H:%M:%S")
+    }
+
+# =========================
+# SESSION FEED STORAGE
+# =========================
+if "feed" not in st.session_state:
+    st.session_state.feed = []
+
+# =========================
+# BUTTON TO GENERATE LIVE DATA
+# =========================
+if st.button("🔄 Generate Live Alert"):
+    st.session_state.feed.append(generate_fake_feed())
+
+# =========================
+# DISPLAY FEED
+# =========================
+if not st.session_state.feed:
+    st.info("No live incidents yet. Click 'Generate Live Alert' to simulate feed.")
+else:
+    for i, inc in enumerate(reversed(st.session_state.feed), 1):
+
+        risk = inc["risk"]
+
+        if risk > 70:
+            st.error(f"""
+### 🔴 Incident #{i}
+**Source:** {inc['source']}  
+**Risk Level:** {risk} (HIGH)  
+**Time:** {inc['time']}  
+
+**Message:**  
+{inc['message']}
+""")
+
+        elif risk > 40:
+            st.warning(f"""
+### 🟡 Incident #{i}
+**Source:** {inc['source']}  
+**Risk Level:** {risk} (MEDIUM)  
+**Time:** {inc['time']}  
+
+**Message:**  
+{inc['message']}
+""")
+
+        else:
+            st.success(f"""
+### 🟢 Incident #{i}
+**Source:** {inc['source']}  
+**Risk Level:** {risk} (LOW)  
+**Time:** {inc['time']}  
+
+**Message:**  
+{inc['message']}
+""")
+
+        st.divider()
