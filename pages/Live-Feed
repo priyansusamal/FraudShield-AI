@@ -4,7 +4,7 @@ from datetime import datetime
 
 st.set_page_config(page_title="Live Fraud Feed", layout="wide")
 
-st.title("📡 LIVE FRAUD INTELLIGENCE FEED")
+st.title("LIVE FRAUD INTELLIGENCE FEED")
 
 # =========================
 # FAKE LIVE FEED (NO INCIDENT STORE)
@@ -35,7 +35,7 @@ if "feed" not in st.session_state:
 # =========================
 # BUTTON TO GENERATE LIVE DATA
 # =========================
-if st.button("🔄 Generate Live Alert"):
+if st.button("Generate Live Alert"):
     st.session_state.feed.append(generate_fake_feed())
 
 # =========================

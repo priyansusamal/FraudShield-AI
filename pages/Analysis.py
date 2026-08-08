@@ -92,14 +92,14 @@ if st.button("Analyze"):
         # SCAM TYPE
         # =========================
 
-        st.subheader(f"🧠 Scam Type: {scam_type}")
+        st.subheader(f"Scam Type: {scam_type}")
 
 
         # =========================
         # DETECTED REASONS
         # =========================
 
-        st.subheader("📋 Detected Reasons")
+        st.subheader("Detected Reasons")
 
         if reasons:
 

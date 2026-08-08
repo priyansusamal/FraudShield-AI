@@ -43,7 +43,7 @@ h1 {
 </style>
 """, unsafe_allow_html=True)
 
-st.title("🛡️ FRAUDSHIELD OS — CYBER INTELLIGENCE CENTER")
+st.title("FRAUDSHIELD OS — CYBER INTELLIGENCE CENTER")
 
 # =========================
 # FAKE LIVE METRICS (STATIC SIMULATION)
@@ -76,7 +76,7 @@ st.divider()
 # =========================
 # FRAUD HOTSPOTS MAP
 # =========================
-st.subheader("🌍 Fraud Hotspots Intelligence")
+st.subheader("Fraud Hotspots Intelligence")
 
 fraud_map = folium.Map(location=[22.5, 78.9], zoom_start=5)
 
@@ -101,7 +101,7 @@ st.divider()
 # =========================
 # FRAUD NETWORK GRAPH
 # =========================
-st.subheader("🕸️ Fraud Network Intelligence")
+st.subheader("Fraud Network Intelligence")
 
 def generate_graph():
 
@@ -163,10 +163,10 @@ alerts = [
 for a in alerts:
     st.warning(a)
 
-st.success("🛡️ SYSTEM MONITORING ACTIVE — FRAUDSHIELD OS ONLINE")
+st.success("SYSTEM MONITORING ACTIVE — FRAUDSHIELD OS ONLINE")
 
 st.markdown("""
-## 🛡️ LIVE GLOBAL THREAT STATUS
+## LIVE GLOBAL THREAT STATUS
 
 🟡 OTP scams increasing in metro cities  
 🔴 Digital arrest scams detected in circulation  

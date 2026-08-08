@@ -7,7 +7,7 @@ from datetime import datetime
 # =========================
 st.set_page_config(page_title="Analytics", layout="wide")
 
-st.title("📊 Fraud Intelligence Analytics")
+st.title("Fraud Intelligence Analytics")
 
 # =========================
 # FAKE ANALYTICS DATA (SELF-CONTAINED)
@@ -40,7 +40,7 @@ if "analytics_data" not in st.session_state:
 # =========================
 # ADD NEW DATA BUTTON
 # =========================
-if st.button("🔄 Generate New Data"):
+if st.button("Generate New Data"):
     st.session_state.analytics_data.append(generate_fake_data())
 
 data = st.session_state.analytics_data

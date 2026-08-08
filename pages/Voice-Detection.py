@@ -1,7 +1,7 @@
 import streamlit as st
 import speech_recognition as sr
 
-st.title("🎙️ Voice Scam Detection")
+st.title("Voice Scam Detection")
 
 st.markdown("Upload or record a suspicious call for analysis")
 
@@ -45,12 +45,12 @@ if audio_file:
 
     text = transcribe("temp_audio.wav")
 
-    st.subheader("📝 Transcribed Text")
+    st.subheader("Transcribed Text")
     st.write(text)
 
     score = simple_scam_check(text)
 
-    st.subheader("🧠 Risk Score")
+    st.subheader("Risk Score")
 
     st.progress(score / 100)
 

@@ -3,7 +3,7 @@ from pyvis.network import Network
 import tempfile
 import os
 
-st.title("🕸️ Fraud Network Graph")
+st.title("Fraud Network Graph")
 
 def graph():
 

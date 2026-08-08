@@ -8,7 +8,7 @@ from datetime import datetime
 
 st.set_page_config(page_title="Auto FIR Generator", layout="wide")
 
-st.title("📄 AI Auto FIR Generator")
+st.title("AI Auto FIR Generator")
 st.markdown("Generate cybercrime complaint reports from scam messages")
 
 # =========================
@@ -77,7 +77,7 @@ if st.button("Generate FIR Report"):
 
         fir_content = generate_fir(user_input)
 
-        st.subheader("📋 Generated Complaint")
+        st.subheader("Generated Complaint")
 
         st.text(fir_content)
 
@@ -85,10 +85,10 @@ if st.button("Generate FIR Report"):
 
         with open(pdf_path, "rb") as f:
             st.download_button(
-                label="📥 Download FIR PDF",
+                label="Download FIR PDF",
                 data=f,
                 file_name="Cyber_FIR_Report.pdf",
                 mime="application/pdf"
             )
 
-        st.success("FIR Report generated successfully 🚨")
+        st.success("FIR Report generated successfully")

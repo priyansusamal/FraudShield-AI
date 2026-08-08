@@ -2,7 +2,7 @@ import streamlit as st
 import folium
 from streamlit_folium import st_folium
 
-st.title("🌍 Fraud Hotspots Map")
+st.title("Fraud Hotspots Map")
 
 def map_data():
     m = folium.Map(location=[22.5, 78.9], zoom_start=5)

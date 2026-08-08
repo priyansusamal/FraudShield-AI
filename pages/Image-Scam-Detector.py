@@ -12,7 +12,7 @@ pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tessera
 # =========================
 # UI
 # =========================
-st.title("🖼️ AI Image Scam Detector")
+st.title("AI Image Scam Detector")
 st.markdown("Upload screenshots of WhatsApp / SMS / Emails to detect fraud")
 
 # =========================
@@ -63,7 +63,7 @@ if uploaded_file:
     # Analysis
     score, reasons = detect_scam(text)
 
-    st.subheader("🧠 Scam Analysis Result")
+    st.subheader("Scam Analysis Result")
 
     st.progress(score / 100)
 
@@ -74,7 +74,7 @@ if uploaded_file:
     else:
         st.error(f"🔴 HIGH RISK ({score}/100)")
 
-    st.subheader("⚠️ Reasons")
+    st.subheader("Reasons")
 
     if reasons:
         for r in reasons:

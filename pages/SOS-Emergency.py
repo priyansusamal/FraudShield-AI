@@ -52,7 +52,7 @@ def generate_case_id():
 # =========================
 # UI
 # =========================
-st.markdown("## 🚨 One-Tap Emergency Protection")
+st.markdown("## One-Tap Emergency Protection")
 st.warning("Use this only if you are actively being targeted by fraud/scam calls/messages.")
 
 # =========================
@@ -68,14 +68,14 @@ if st.button("🆘 ACTIVATE SOS ALERT"):
     # =========================
 
 
-    st.error("🚨 EMERGENCY ALERT ACTIVATED")
+    st.error("EMERGENCY ALERT ACTIVATED")
 
     # =========================
     # CASE FILE
     # =========================
     st.markdown(f"""
     <div class="card">
-        <h3>🧾 CASE FILE GENERATED</h3>
+        <h3>CASE FILE GENERATED</h3>
         <p><b>Case ID:</b> {case_id}</p>
         <p><b>Status:</b> ACTIVE</p>
         <p><b>Time:</b> {time_now}</p>
@@ -99,7 +99,7 @@ if st.button("🆘 ACTIVATE SOS ALERT"):
     # =========================
     # SAFETY INSTRUCTIONS
     # =========================
-    st.markdown("## ☎️ Immediate Safety Instructions")
+    st.markdown("## Immediate Safety Instructions")
 
     st.error("Do NOT share OTP, bank details, or screen access")
     st.warning("Disconnect from unknown calls immediately")
