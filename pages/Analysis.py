@@ -1,36 +1,26 @@
 import streamlit as st
-import os
-from google import genai
 
 # =========================
 # PAGE CONFIG
 # =========================
+
 st.set_page_config(
     page_title="FraudShield AI - Analyzer",
     page_icon="🛡️",
     layout="centered"
 )
 
-st.title("🛡️ Scam Analyzer + AI Intelligence")
+st.title("🛡️ Scam Analyzer")
 
-# =========================
-# GEMINI CLIENT
-# =========================
-try:
-    API_KEY = st.secrets["GEMINI_API_KEY"]
-    client = genai.Client(api_key=API_KEY)
-except Exception:
-    API_KEY = None
-    client = None
-
-if not client:
-    st.warning("⚠️ Gemini API key not found. AI disabled.")
 
 # =========================
 # RULE-BASED DETECTION
 # =========================
+
 def detect(text):
+
     text = text.lower()
+
     score = 10
     reasons = []
     scam_type = "Unknown"
@@ -56,74 +46,66 @@ def detect(text):
 
     return min(score, 100), reasons, scam_type
 
-# =========================
-# AI EXPLANATION
-# =========================
-def get_ai_explanation(text):
-
-    if not client:
-        return "⚠️ AI unavailable (missing API key)."
-
-    try:
-        prompt = f"""
-You are a cybercrime analyst.
-
-Analyze this message:
-
-{text}
-
-Return:
-1. Risk summary
-2. Why it is suspicious
-3. Scam techniques used
-4. Safety advice
-"""
-
-        response = client.models.generate_content(
-            model="gemini-1.5-flash",
-            contents=prompt
-        )
-
-        return response.text
-
-    except Exception as e:
-        return f"⚠️ AI error: {str(e)}"
 
 # =========================
-# UI
+# USER INPUT
 # =========================
-msg = st.text_area("Paste suspicious message", height=180)
+
+msg = st.text_area(
+    "Paste suspicious message",
+    height=180
+)
+
+
+# =========================
+# ANALYZE
+# =========================
 
 if st.button("Analyze"):
 
     if not msg.strip():
+
         st.warning("Please enter a message")
 
     else:
+
         score, reasons, scam_type = detect(msg)
 
         # =========================
-        # RESULT UI
+        # RISK RESULT
         # =========================
+
         if score < 40:
+
             st.success(f"🟢 LOW RISK ({score})")
+
         elif score < 70:
+
             st.warning(f"🟡 MEDIUM RISK ({score})")
+
         else:
+
             st.error(f"🔴 HIGH RISK ({score})")
+
+
+        # =========================
+        # SCAM TYPE
+        # =========================
 
         st.subheader(f"🧠 Scam Type: {scam_type}")
 
+
+        # =========================
+        # DETECTED REASONS
+        # =========================
+
         st.subheader("📋 Detected Reasons")
-        for r in reasons:
-            st.write("•", r)
 
-        # =========================
-        # AI SECTION
-        # =========================
-        st.subheader("🤖 AI Investigation Report (Gemini)")
+        if reasons:
 
-        with st.spinner("Analyzing with AI..."):
-            explanation = get_ai_explanation(msg)
+            for reason in reasons:
+                st.write("•", reason)
 
-        st.markdown(explanation)
+        else:
+
+            st.write("No suspicious patterns detected.")
