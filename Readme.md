@@ -1,3 +1,5 @@
+ Deployed Link - https://fraudshield-ai-fser77jgztkp8fmljm5uhj.streamlit.app/
+ 
  FraudShield AI — Cyber Fraud Detection & Emergency Response System
 
 FraudShield AI is a real-time AI-powered cyber fraud detection and intelligence platform that analyzes suspicious messages, detects scam patterns, visualizes fraud networks, and provides emergency SOS response features.
