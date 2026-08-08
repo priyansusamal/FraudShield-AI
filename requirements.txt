@@ -3,3 +3,4 @@ folium
 streamlit-folium
 pyvis
 google-genai
+reportlab
