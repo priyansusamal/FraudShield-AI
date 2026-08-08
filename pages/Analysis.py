@@ -16,9 +16,12 @@ st.title("🛡️ Scam Analyzer + AI Intelligence")
 # =========================
 # GEMINI CLIENT
 # =========================
-API_KEY = os.getenv("GEMINI_API_KEY")
-
-client = genai.Client(api_key=API_KEY) if API_KEY else None
+try:
+    API_KEY = st.secrets["GEMINI_API_KEY"]
+    client = genai.Client(api_key=API_KEY)
+except Exception:
+    API_KEY = None
+    client = None
 
 if not client:
     st.warning("⚠️ Gemini API key not found. AI disabled.")
