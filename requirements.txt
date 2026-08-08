@@ -4,3 +4,4 @@ streamlit-folium
 pyvis
 google-genai
 reportlab
+pytesseract
