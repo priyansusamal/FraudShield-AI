@@ -5,3 +5,4 @@ pyvis
 google-genai
 reportlab
 pytesseract
+SpeechRecognition
